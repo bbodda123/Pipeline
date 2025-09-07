@@ -25,6 +25,7 @@ A simple Express.js web server with three routes: Home, About, and Contact.
 2. Install dependencies:
    ```sh
    npm install
+   npm install --save-dev supertest
    ```
 Running the Server...
 
