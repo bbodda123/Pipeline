@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'
+            args '-p 3000:3000' // map port if you want to test locally
+        }
+    }
 
     environment {
         APP_ENV = 'development'
@@ -24,14 +29,14 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo '>>> Testing the app...'
-                sh 'npm test'
+                sh 'cd app && npm test'
             }
         }
 
         stage('Run') {
             steps {
                 echo '>>> Starting the app...'
-                sh 'npm start &'
+                sh 'cd app && npm start &'
                 sleep 3
                 sh 'curl http://localhost:3000 || true'  // basic health check
             }
