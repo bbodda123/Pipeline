@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18'
-            args '-p 3000:3000' // port for viewing my app if iwant to view it 
-        }
-    }
+    agent any
 
     environment {
         APP_ENV = 'development'
@@ -22,10 +17,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo '>>> Installing the Dependencies...'
-                sh 'cd app'
-                sh 'npm install'
-                sleep 7
-                sh 'npm install --save-dev supertest'
+                sh 'cd app && npm install && npm install --save-dev supertest'
             }
         }
 
