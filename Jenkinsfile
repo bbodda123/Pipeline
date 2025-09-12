@@ -1,9 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        IMAGE_NAME = "node-demo"
-    }
     stages {
         stage('Build & Test') {
             agent {
@@ -17,18 +14,12 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage('Build Docker Image') {
-            agent any
-            steps {
-                sh "docker build -t $IMAGE_NAME ."
-            }
-        }
         stage('Run Container') {
             steps {
                 // Stop old container if exists, then run new
                 sh '''
-                  docker rm -f node-demo || true
-                  docker run -d -p 3000:3000 --name node-demo $IMAGE_NAME
+                  docker rm -f node-pipeline || true
+                  docker run -d -p 3000:3000 --name node-pipeline node:18
                 '''
             }
         }
