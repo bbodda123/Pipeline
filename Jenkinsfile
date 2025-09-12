@@ -1,36 +1,28 @@
 pipeline {
     agent any
-
+    
     environment {
-        // Name Of Docker Image
         IMAGE_NAME = "node-demo"
     }
-
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/bbodda123/Pipeline.git'
+        stage('Build & Test') {
+            agent {
+                docker {
+                    image 'node:18'
+                    args '-v $WORKSPACE:/app -w /app'
+                }
             }
-        }
-
-        stage('Install') {
             steps {
                 sh 'npm install'
-            }
-        }
-
-        stage('Test') {
-            steps {
                 sh 'npm test'
             }
         }
-
         stage('Build Docker Image') {
+            agent any
             steps {
                 sh "docker build -t $IMAGE_NAME ."
             }
         }
-
         stage('Run Container') {
             steps {
                 // Stop old container if exists, then run new
