@@ -9,8 +9,6 @@ services:
       - .env.mysql
     ports:
       - "3306"
-    volumes:
-      - new_data:/var/lib/mysql
 
   petclinic:
     image: spring-petclinic-small
@@ -22,6 +20,3 @@ services:
       - .env.app
     ports:
       - "8090:8080"
-
-volumes:
-  new_data:
