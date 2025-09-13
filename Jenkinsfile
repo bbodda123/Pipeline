@@ -19,7 +19,7 @@ pipeline {
             }
             steps {
                 // Set The Working Directory For The Shell Commands That I Will write To Make The Testing..
-                dir('spring-petclinic') {
+                dir('spring') {
                     sh 'mvn clean verify'
                 }
             }
