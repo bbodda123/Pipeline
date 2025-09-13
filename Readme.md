@@ -8,23 +8,23 @@ This repository contains a collection of DevOps pipeline configurations designed
 
 ## 🛠️ Technologies Used
 
-* **Jenkins**: For continuous integration and deployment automation.
-* **Docker**: To containerize applications for consistent environments.
-* **Docker Compose**: For defining and running multi-container Docker applications.
-* **Spring Framework**: A Java-based framework for building enterprise applications.
+- **Jenkins**: For continuous integration and deployment automation.
+- **Docker**: To containerize applications for consistent environments.
+- **Docker Compose**: For defining and running multi-container Docker applications.
+- **Spring Framework**: A Java-based framework for building enterprise applications.
 
 ## 📁 Repository Structure
 
 The repository includes the following key files and directories:
 
-* **`Dockerfile`**: Defines the environment for building the application container.
-* **`docker-compose.yml`**: Specifies the services, networks, and volumes for the application.
-* **`Jenkinsfile`**: Contains the pipeline script for Jenkins to automate the build and deployment processes.
-* **`Main.Jenkinsfile`**: An alternative or main Jenkins pipeline script.
-* **`.gitignore`**: Specifies files and directories to be ignored by Git.
-* **`.env.app`**: Environment variables for the application.
-* **`.env.mysql`**: Environment variables for MySQL configuration.
-* **`spring/`**: Directory containing Spring Framework application files.
+- **`Dockerfile`**: Defines the environment for building the application container.
+- **`docker-compose.yml`**: Specifies the services, networks, and volumes for the application.
+- **`Jenkinsfile`**: Contains the pipeline script for Jenkins to automate the build and deployment processes.
+- **`Main.Jenkinsfile`**: An alternative or main Jenkins pipeline script.
+- **`.gitignore`**: Specifies files and directories to be ignored by Git.
+- **`.env.app`**: Environment variables for the application.
+- **`.env.mysql`**: Environment variables for MySQL configuration.
+- **`spring/`**: Directory containing Spring Framework application files.
 
 ## 🚀 Getting Started
 
@@ -49,6 +49,8 @@ docker-compose up --build
 
 4. **Set Up Jenkins**:
 
-* Install Jenkins on your server.
-* Create a new pipeline job and point it to your repository.
-* Jenkins will automatically detect the `Jenkinsfile` or `Main.Jenkinsfile` and execute the pipeline.
+- Install Jenkins on your server.
+- Create a new pipeline job and point it to your repository.
+- Jenkins will automatically detect the `Jenkinsfile` or `Main.Jenkinsfile` and execute the pipeline.
+
+Test the Ngrok
