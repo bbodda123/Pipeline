@@ -21,7 +21,7 @@ services:
     env_file:
       - .env.app
     ports:
-      - "8090:8081"
+      - "8090:8080"
 
 volumes:
   new_data:
