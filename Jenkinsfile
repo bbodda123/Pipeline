@@ -8,7 +8,10 @@ pipeline{
     stages{
         stage("Test The Docker Compose Build...."){
             steps{
-                sh 'docker-compose up -d'
+                sh '
+                docker rm -f pipeline-sever-nodejs || true
+                docker-compose up -d
+                '
             }
         }
     }
