@@ -1,0 +1,15 @@
+name: Best Workflow Ever 
+on:
+  push:
+    branches:
+      - actions
+jobs:
+  test:
+      runs-on: ubuntu-latest
+      steps:
+        # Get The Code At This Step In This Job
+        - uses: actions/checkout@v5
+
+        # Run a Simple Command "Hello World!"
+        - name: Run Small Script Says "Hello World!"
+          run: echo Hello World! 
