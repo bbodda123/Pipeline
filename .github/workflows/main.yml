@@ -1,39 +1,26 @@
-name: Best Workflow Ever 
+name: Best Workflow Ever
 on:
   push:
     branches:
       - pipe
 
 jobs:
-  test:
-      runs-on: ubuntu-latest
-      steps:
+  test_and_run:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: 18
 
-      - name: Run The Tests  
+      - name: Run Tests
         run: npm test
 
-  build_Run:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 18
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Run The Tests and Run The App 
+      - name: Start App & Curl
         run: |
-          npm install --production &
           npm start &
           sleep 5
-
-  Curl:
-      needs: build_Run
-      runs-on: ubuntu-latest
-      steps:
-      - name: Curl the App
-        run: curl http://localhost:3000
-        
+          curl http://localhost:3000
