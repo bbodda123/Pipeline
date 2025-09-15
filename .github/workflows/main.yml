@@ -29,11 +29,6 @@ jobs:
           npm install --production &
           npm start &
           sleep 5
-
-  Curl:
-      runs-on: ubuntu-latest
-      needs: build_Run
-      steps:
       - name: Curl the App
         run: curl http://localhost:3000
         
