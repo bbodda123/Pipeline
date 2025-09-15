@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - pipe
-
+    paths: 
+      - "pipeline/**"
 jobs:
   test:
       runs-on: ubuntu-latest
