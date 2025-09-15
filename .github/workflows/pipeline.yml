@@ -4,7 +4,8 @@ on:
     branches:
       - pipe
     paths: 
-      - "pipeline/**"
+      - 'pipeline/**'
+      - 'pipeline/'
 jobs:
   test:
       runs-on: ubuntu-latest
