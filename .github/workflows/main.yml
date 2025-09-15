@@ -3,13 +3,37 @@ on:
   push:
     branches:
       - pipe
+
 jobs:
   test:
       runs-on: ubuntu-latest
       steps:
-        # Get The Code At This Step In This Job
-        - uses: actions/checkout@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 18
 
-        # Run a Simple Command "Hello World!"
-        - name: Run Small Script Says "Hello World!"
-          run: echo Hello World! 
+      - name: Run The Tests  
+        run: npm test
+
+  build_Run:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 18
+
+      - name: Run The Tests and Run The App 
+        run: |
+          npm install --production &
+          npm start &
+          sleep 5
+
+  Curl:
+      needs: build_Run
+      runs-on: ubuntu-latest
+      steps:
+      - name: Curl the App
+        run: curl http://localhost:3000
+        
