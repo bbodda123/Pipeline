@@ -40,3 +40,4 @@ The server responds with:
 ---
 
 Made with ❤️ for CI/CD demos.
+
